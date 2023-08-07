@@ -134,6 +134,9 @@ class Command(GestoreCommand):
                 objects.append(item)
 
             for pending_item in pending_items:
+                if pending_item is None:
+                    continue
+
                 pending_item_key = instance_representation(pending_item)
 
                 is_root_object = get_model_name(pending_item) in root_models
